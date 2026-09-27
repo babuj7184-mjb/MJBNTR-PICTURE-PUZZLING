@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Telugu Cinema Puzzle</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎬 Telugu Cinema Puzzle</h1>
+
+        <p class="subtitle">
+            Guess the Telugu Hero & Heroine
+        </p>
+
+        <div class="level-panel">
+            <div class="level-display">
+                <span>Level</span>
+                <b id="level">1</b>
+            </div>
+
+            <div class="level-buttons">
+                <button id="level1Btn" class="level-btn active">1</button>
+                <button id="level2Btn" class="level-btn">2</button>
+                <button id="level3Btn" class="level-btn">3</button>
+            </div>
+        </div>
+
+        <!-- Category -->
+
+        <div class="category-buttons">
+
+            <button id="heroesBtn">
+                👨 Heroes
+            </button>
+
+            <button id="heroinesBtn">
+                👩 Heroines
+            </button>
+
+            <button id="allBtn">
+                🎬 All
+            </button>
+
+        </div>
+
+        <!-- Game Information -->
+
+        <div class="info">
+
+            <div>
+                <span>Time</span>
+                <b id="time">00:00</b>
+            </div>
+
+            <div>
+                <span>Moves</span>
+                <b id="moves">0</b>
+            </div>
+
+            <div>
+                <span>Score</span>
+                <b id="score">0</b>
+            </div>
+
+        </div>
+
+        <!-- Puzzle -->
+
+        <div id="puzzle"></div>
+
+        <div id="clue" class="clue hidden">Select a tile to reveal its original place.</div>
+
+        <div class="buttons">
+
+            <button id="newGame">
+                🔄 New Picture
+            </button>
+
+            <button id="shuffle">
+                🔀 Shuffle
+            </button>
+
+            <button id="clueBtn">
+                💡 Clue
+            </button>
+
+            <button id="nextLevel">
+                ➡️ Next Level
+            </button>
+
+        </div>
+
+        <!-- Result -->
+
+        <div id="result"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

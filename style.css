@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #12001f,
+            #3b0066,
+            #17002b
+        );
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+.container {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    text-align: center;
+
+    padding: 25px;
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.5);
+}
+
+h1 {
+
+    font-size: 36px;
+
+    margin-bottom: 8px;
+
+}
+
+.subtitle {
+
+    color: #ddd;
+
+    margin-bottom: 25px;
+
+}
+
+/* Level panel */
+
+.level-panel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+.level-display {
+
+    min-width: 120px;
+
+    padding: 10px 14px;
+
+    border-radius: 12px;
+
+    background: rgba(0,0,0,0.25);
+
+}
+
+.level-display span {
+
+    display: block;
+
+    color: #bbb;
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+
+}
+
+.level-display b {
+
+    font-size: 22px;
+
+}
+
+.level-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+.level-btn {
+
+    min-width: 52px;
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+}
+
+.level-btn.active {
+
+    background: #ffd000;
+
+    color: #22002f;
+
+}
+
+/* Category buttons */
+
+.category-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+
+}
+
+button {
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: #ffd000;
+
+    color: #22002f;
+
+    transition: 0.2s;
+
+}
+
+button:hover {
+
+    transform: scale(1.05);
+
+    background: white;
+
+}
+
+/* Information */
+
+.info {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+.info div {
+
+    min-width: 100px;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background: rgba(0,0,0,0.3);
+
+}
+
+.info span {
+
+    display: block;
+
+    color: #bbb;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+
+}
+
+.info b {
+
+    font-size: 20px;
+
+}
+
+/* Puzzle */
+
+#puzzle {
+
+    width: min(90vw, 500px);
+
+    height: min(90vw, 500px);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(var(--grid-size, 3), 1fr);
+
+    grid-template-rows: repeat(var(--grid-size, 3), 1fr);
+
+    gap: 3px;
+
+    background: #000;
+
+    padding: 3px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+}
+
+/* Puzzle piece */
+
+.piece {
+
+    background-repeat: no-repeat;
+
+    cursor: grab;
+
+    border-radius: 3px;
+
+    transition: 0.15s;
+
+}
+
+.piece:active {
+
+    cursor: grabbing;
+
+    transform: scale(0.96);
+
+}
+
+/* Selected piece */
+
+.selected {
+
+    outline: 4px solid #ffd000;
+
+    z-index: 5;
+
+}
+
+/* Buttons */
+
+.buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+/* Result */
+
+.clue {
+
+    margin-top: 18px;
+
+    margin-bottom: 8px;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 208, 0, 0.12);
+
+    border: 1px solid rgba(255, 208, 0, 0.5);
+
+    color: #f8e9a1;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+}
+
+.piece.clue-source {
+
+    outline: 3px solid #ffd000;
+
+    box-shadow: 0 0 0 3px rgba(255, 208, 0, 0.35);
+
+}
+
+.piece.clue-correct {
+
+    outline: 3px solid #50f5b9;
+
+    box-shadow: 0 0 0 3px rgba(80, 245, 185, 0.35);
+
+}
+
+.clue.hidden {
+
+    visibility: hidden;
+
+    height: 0;
+
+    padding: 0;
+
+    margin: 0;
+
+    overflow: hidden;
+
+}
+
+#result {
+
+    min-height: 80px;
+
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+.success {
+
+    animation: pop 0.5s ease;
+
+}
+
+.success img {
+
+    width: 180px;
+
+    max-width: 80%;
+
+    border-radius: 15px;
+
+    margin-top: 15px;
+
+}
+
+@keyframes pop {
+
+    0% {
+
+        transform: scale(0.5);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:600px) {
+
+    h1 {
+
+        font-size: 26px;
+
+    }
+
+    .container {
+
+        padding: 15px;
+
+    }
+
+    .info {
+
+        gap: 7px;
+
+    }
+
+    .info div {
+
+        min-width: 80px;
+
+    }
+
+}
